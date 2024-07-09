@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 143817449}
   - component: {fileID: 143817451}
   - component: {fileID: 143817450}
+  - component: {fileID: 143817452}
   m_Layer: 5
   m_Name: Slot_C
   m_TagString: Untagged
@@ -233,6 +234,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143817448}
   m_CullTransparentMesh: 1
+--- !u!114 &143817452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143817448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d70ae8731ac6b49b4cdfb7040f8e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reelTransform: {fileID: 143817449}
+  symbols:
+  - {fileID: 21300000, guid: 7f3a1e8292df5c24dbbb200408e35610, type: 3}
+  - {fileID: 21300000, guid: ef1fa513016e9a4459d908b7f06d10e5, type: 3}
+  - {fileID: 21300000, guid: 4492a05cd0114614fa142b586f96f6b0, type: 3}
+  - {fileID: 21300000, guid: 171cb006c9423014b9d9159feb79e778, type: 3}
+  scrollSpeed: 500
 --- !u!1 &151868552
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +354,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1434960024}
+        m_TargetAssemblyTypeName: Lever, Assembly-CSharp
+        m_MethodName: OnBetAmountSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &151868555
 MonoBehaviour:
@@ -1363,6 +1395,7 @@ GameObject:
   - component: {fileID: 1070277303}
   - component: {fileID: 1070277305}
   - component: {fileID: 1070277304}
+  - component: {fileID: 1070277306}
   m_Layer: 5
   m_Name: Slot_B
   m_TagString: Untagged
@@ -1427,6 +1460,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070277302}
   m_CullTransparentMesh: 1
+--- !u!114 &1070277306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070277302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d70ae8731ac6b49b4cdfb7040f8e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reelTransform: {fileID: 1070277303}
+  symbols:
+  - {fileID: 21300000, guid: 7f3a1e8292df5c24dbbb200408e35610, type: 3}
+  - {fileID: 21300000, guid: ef1fa513016e9a4459d908b7f06d10e5, type: 3}
+  - {fileID: 21300000, guid: 4492a05cd0114614fa142b586f96f6b0, type: 3}
+  - {fileID: 21300000, guid: 171cb006c9423014b9d9159feb79e778, type: 3}
+  scrollSpeed: 500
 --- !u!1 &1155961251
 GameObject:
   m_ObjectHideFlags: 0
@@ -6636,6 +6688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1434960023}
+  - component: {fileID: 1434960024}
   m_Layer: 5
   m_Name: Lever
   m_TagString: Untagged
@@ -6664,6 +6717,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -420, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1434960024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434960022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46641fd5fdafdcb41818ac9e762703a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulledLever: {fileID: 1253459984}
+  unpulledLever: {fileID: 1467099952}
+  leverPullSound: {fileID: 782282521}
+  betAmountSelector: {fileID: 151868554}
+  slotMachine: {fileID: 0}
 --- !u!1 &1467099952
 GameObject:
   m_ObjectHideFlags: 0
@@ -6676,6 +6746,7 @@ GameObject:
   - component: {fileID: 1467099955}
   - component: {fileID: 1467099954}
   - component: {fileID: 1467099956}
+  - component: {fileID: 1467099957}
   m_Layer: 5
   m_Name: Unpulled_Lever
   m_TagString: Untagged
@@ -6784,9 +6855,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1788997824}
-        m_TargetAssemblyTypeName: SlotMachine, Assembly-CSharp
-        m_MethodName: Pull
+      - m_Target: {fileID: 1467099957}
+        m_TargetAssemblyTypeName: LeverPullButton, Assembly-CSharp
+        m_MethodName: OnPullButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6796,6 +6867,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1467099957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467099952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3552431e6537be04b9b69c8545147403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lever: {fileID: 1434960024}
 --- !u!1 &1500276075
 GameObject:
   m_ObjectHideFlags: 0
@@ -7029,6 +7113,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603758185}
   m_CullTransparentMesh: 1
+--- !u!1 &1747836873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1747836875}
+  - component: {fileID: 1747836874}
+  m_Layer: 0
+  m_Name: BetManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1747836874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747836873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708465dcae502c645bbb7ac06994ba02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accountBalanceText: {fileID: 224297793}
+  accountBalance: 200
+--- !u!4 &1747836875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747836873}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7879795, y: 0.8910598, z: 90.29823}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1788997822
 GameObject:
   m_ObjectHideFlags: 0
@@ -7073,25 +7203,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06408c965cfcf6449268e9450a83da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Pulled_Lever: {fileID: 1253459984}
-  m_UnPulled_Lever: {fileID: 1467099952}
+  lever: {fileID: 1434960024}
   reels:
-  - {fileID: 1915503922}
-  - {fileID: 1070277303}
-  - {fileID: 143817449}
-  symbols:
-  - {fileID: 21300000, guid: 7f3a1e8292df5c24dbbb200408e35610, type: 3}
-  - {fileID: 21300000, guid: ef1fa513016e9a4459d908b7f06d10e5, type: 3}
-  - {fileID: 21300000, guid: 4492a05cd0114614fa142b586f96f6b0, type: 3}
-  - {fileID: 21300000, guid: 171cb006c9423014b9d9159feb79e778, type: 3}
-  spinDuration: 2
-  scrollSpeed: 600
+  - {fileID: 143817452}
+  - {fileID: 1070277306}
+  - {fileID: 1915503925}
   resultText: {fileID: 1884298752}
-  accountBalance: 200
-  accountBalanceText: {fileID: 224297793}
-  betAmountSelector: {fileID: 151868554}
+  betManager: {fileID: 1747836874}
   jackpotParticle: {fileID: 1415261059}
-  liverPullSound: {fileID: 782282521}
 --- !u!1 &1876322834
 GameObject:
   m_ObjectHideFlags: 0
@@ -7446,6 +7565,7 @@ GameObject:
   - component: {fileID: 1915503922}
   - component: {fileID: 1915503924}
   - component: {fileID: 1915503923}
+  - component: {fileID: 1915503925}
   m_Layer: 5
   m_Name: Slot_A
   m_TagString: Untagged
@@ -7510,6 +7630,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915503921}
   m_CullTransparentMesh: 1
+--- !u!114 &1915503925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915503921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d70ae8731ac6b49b4cdfb7040f8e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reelTransform: {fileID: 1915503922}
+  symbols:
+  - {fileID: 21300000, guid: 7f3a1e8292df5c24dbbb200408e35610, type: 3}
+  - {fileID: 21300000, guid: ef1fa513016e9a4459d908b7f06d10e5, type: 3}
+  - {fileID: 21300000, guid: 4492a05cd0114614fa142b586f96f6b0, type: 3}
+  - {fileID: 21300000, guid: 171cb006c9423014b9d9159feb79e778, type: 3}
+  scrollSpeed: 500
 --- !u!1 &2007441725
 GameObject:
   m_ObjectHideFlags: 0
@@ -7655,3 +7794,4 @@ SceneRoots:
   - {fileID: 845083634}
   - {fileID: 1415261060}
   - {fileID: 782282522}
+  - {fileID: 1747836875}
