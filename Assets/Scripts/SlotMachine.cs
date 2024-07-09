@@ -39,6 +39,9 @@ public class SlotMachine : MonoBehaviour
     // Particle Effect reference while winning the JACKPOT
     [SerializeField] ParticleSystem jackpotParticle;
 
+    // Liver Pull Sound Effect
+    [SerializeField] AudioSource liverPullSound;
+
     // Boolean flag to check if the reels are currently spinning
     private bool isSpinning = false;
 
@@ -92,7 +95,7 @@ public class SlotMachine : MonoBehaviour
         m_Pulled_Lever.SetActive(false);
         m_UnPulled_Lever.SetActive(true);
 
-        accountBalanceText.text = accountBalance.ToString();
+        accountBalanceText.text = "Balance: " + accountBalance.ToString();
     }
 
     // Coroutine to handle the spinning of all reels
@@ -208,34 +211,47 @@ public class SlotMachine : MonoBehaviour
     void LeverTrigger(int value)
     {
         // Lever Pull Action
+        liverPullSound.Play();
         StartCoroutine(LeverPull());
-
         betAmountSelector.gameObject.SetActive(false);
 
         switch (value)
         {
             case 1:
-                UpdateAccount(false, 10);
-                betAmount = 10;
+                if (accountBalance >= 10)
+                {
+                    UpdateAccount(false, 10);
+                    betAmount = 10;
+                }
                 break;
             case 2:
-                UpdateAccount(false, 50);
-                betAmount = 50;
+                if (accountBalance >= 50)
+                {
+                    UpdateAccount(false, 50);
+                    betAmount = 50;
+                }
                 break;
             case 3:
-                UpdateAccount(false, 100);
-                betAmount = 100;
+                if (accountBalance >= 100)
+                {
+                    UpdateAccount(false, 100);
+                    betAmount = 100;
+                }
                 break;
             case 4:
-                UpdateAccount(false, 500);
-                betAmount = 500;
+                if (accountBalance >= 500)
+                {
+                    UpdateAccount(false, 500);
+                    betAmount = 500;
+                }
                 break;
             default:
+                betAmount = 0;
                 break;
         }
 
         // Start the coroutine to spin the reels
-        if (!isSpinning)
+        if (!isSpinning && accountBalance > betAmount)
         {
 
             StartCoroutine(SpinReels());
@@ -259,12 +275,12 @@ public class SlotMachine : MonoBehaviour
         if (inc)
         {
             accountBalance += amt;
-            accountBalanceText.text = accountBalance.ToString();
+            accountBalanceText.text = "Balance: " + accountBalance.ToString();
         }
         else
         {
             accountBalance -= amt;
-            accountBalanceText.text = accountBalance.ToString();
+            accountBalanceText.text = "Balance: " + accountBalance.ToString();
         }
     }
 
