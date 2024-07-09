@@ -246,12 +246,12 @@ public class SlotMachine : MonoBehaviour
                 }
                 break;
             default:
-                betAmount = 0;
+                betAmount = -1;
                 break;
         }
 
         // Start the coroutine to spin the reels
-        if (!isSpinning && accountBalance > betAmount)
+        if (!isSpinning && accountBalance >= betAmount)
         {
 
             StartCoroutine(SpinReels());
